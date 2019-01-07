@@ -9,24 +9,38 @@
     </script>
 </head>
 <body>
-<header><img id="img1" src="Image/RepulsiveWideeyedGentoopenguin-size_restricted.gif" height="191" width="200"/>Match of the Millennium
+<header><img id="img1" src="Image/kyo ryu.gif" height="115" width="200"/>Match of the Millennium
     <img id="img2" src="Image/motm-kyoryu2.jpg" height="160" width="200"/></header>
-git add .
-<div class="games-played"><h1>Stats</h1>
-    <div class="label">Games Played
+<div class="stats-container">
+    <h1>Stats</h1>
+    <div class="games-played">
+        <div class="label">Games Played</div>
+        <div class="value"></div>
+    </div>
+    <div class="attempts">
+        <div class="label">Attempts</div>
         <div class="value"></div>
     </div>
     <div class="accuracy">
         <div class="label">Accuracy</div>
         <div class="value"></div>
     </div>
-    <button class="reset">Reset Game</button>
+
+    <button onclick="resetGame()" class="reset">Reset Game</button>
 </div>
+
+
+
 
 <div class="life-bar"><h1>Life Bar</h1>
     <div class="value">
     <progress id="life" value="100" max="100" min="0"></progress>
-</div>
+    </div>
+    <img id="img3" onclick="toggleMute()" src="Image/imageedit_2_9123531956.png" height="155" width="382"/>
+    <audio id="audio_player" controls autoplay="true">
+        <source src="https://vgmrips.net/packs/vgm/SvC_MoTM/17%20-%2018%20Guile%27s%20Theme.mp3" type="audio/mpeg">
+    </audio>
+
 </div>
 
     <div id="game-area">
@@ -117,13 +131,11 @@ git add .
             <img class="front" src="Image/4.jpg">
             <img class="back" src="Image/MomLOGO.png">
         </div>
-
     </div>
 
 <footer>
     <a>Settings</a>
     <a href="about.html" target="_blank">About</a>
-
 </footer>
 </body>
 </html>
