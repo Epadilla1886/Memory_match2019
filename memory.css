@@ -6,9 +6,10 @@
 
 body {
     height: 100vh;
-    background-image: url("Image/Background.jpg");
+    background-image: url("Image/bg5.gif");
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-size: cover;
     display: flex;
 }
 
@@ -57,7 +58,7 @@ body {
     padding: 20px;
     position: absolute;
     border-radius: 5px;
-    background-color: black;
+    background-color: black ;
     background-size: auto;
     background-position: center;
     background-repeat: no-repeat;
@@ -80,7 +81,6 @@ body {
 }
 
 header {
-    background: rgba(0, 0, 130, 0.5);
     text-align: center;
     color: orangered;
     text-shadow: -1px -1px 0 yellow,
@@ -91,12 +91,9 @@ header {
     font-weight: bolder;
     height: 155px;
     width: 100%;
-    position: fixed;
-    padding-top: 40px;
 }
 
 footer{
-    background: rgba(0, 0, 130, 0.5);
     text-align: center;
     font-family: Tahoma;
     font-size: 20px;
@@ -106,8 +103,6 @@ footer{
     1px -1px 0 yellow,
     -1px 1px 0 yellow,
     1px 1px 0 yellow;
-    position:fixed;
-    bottom: 0;
     width: 100%;
     padding: 10px;
     word-spacing: 25px;
@@ -116,13 +111,8 @@ footer{
 .stats-container{
     height: 680px;
     width: 200px;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top:18.8%;
     padding-top: 20px;
     text-align: center;
-    vertical-align: bottom;
     font-family: Tahoma;
     font-size: 20px;
     font-weight: bold;
@@ -131,19 +121,12 @@ footer{
     1px -1px 0 yellow,
     -1px 1px 0 yellow,
     1px 1px 0 yellow;
-    background-color: rgba( 0, 0, 0, 0.5);
 }
 
 .life-bar{
     height: 675px;
     width: 200px;
-    position: fixed;
-    z-index: 1;
-    right: 0;
-    top:18.8%;
-    padding-top: 20px;
     text-align: center;
-    vertical-align: bottom;
     font-family: Tahoma;
     font-size: 20px;
     font-weight: bold;
@@ -152,37 +135,8 @@ footer{
     1px -1px 0 yellow,
     -1px 1px 0 yellow,
     1px 1px 0 yellow;
-    background-color: rgba( 0, 0, 0, 0.5);
 }
 
-.games-played{
-    padding-top: 85px;
-}
-
-
-#img1{
-    position: absolute;
-    left: 0px;
-    top: -35px;
-    height: 190px;
-    width: 200px;
-}
-
-#img3{
-    width: 175px;
-    height: 75px;
-    margin-top: 225px;
-    cursor: pointer;
-    margin-right: -5px;
-}
-
-#img2{
-    position: absolute;
-    right: 0;
-    top: 5px;
-    height: 160px;
-    width: 200px;
-}
 
 .label{
     width: 200px;
@@ -256,18 +210,6 @@ button{
     border-radius: 10px;
 }
 
-#reset-stats{
-    margin-top: 150px;
-    cursor: pointer;
-    height: 60px;
-    width: 185px;
-    border: 4px solid orangered;
-    background-color: darkblue;
-    color: crimson;
-    font-weight: bold;
-    margin-left: -5px;
-}
-
 
 a {
     cursor: pointer;
@@ -290,3 +232,26 @@ progress{
 }
 
 
+.win{
+    background-image: url(Image/win.gif);
+    position: absolute;
+    height:100%;
+    width: 100%;
+    background-size: 70% 70%;
+    left: 15%;
+    top: 20%;
+    background-position: cover;
+    background-repeat: no-repeat;
+}
+
+.gameover{
+    background-image: url(Image/ko.gif);
+    position: absolute;
+    height:100%;
+    width: 100%;
+    background-size: 70% 70%;
+    left: 15%;
+    top: 20%;
+    background-position: cover;
+    background-repeat: no-repeat;
+}

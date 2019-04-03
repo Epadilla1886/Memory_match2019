@@ -1,35 +1,55 @@
 var cardList = null;
-var flippedCard = false;
 var cardOne = null;
 var cardTwo = null;
-var cardMatch = 0;
+var flippedCard = false;
 var boardDisabled = false;
-var lifepoints = 100;
-var life = null;
-var gamesWon = 0;
-var gamesLost = 0;
 var gamesPlayed = 0;
 var attempts = 0;
-var accuracy = 100;
+var accuracy = 0;
+var matchCount = 0;
 var possibleMatches = 9;
+var lifepoints = 100;
+var life = null;
+// var imageContainer= ["Image/"]
 
-window.onload = function(){
-    display_stats();
+$(document).ready(initGame);
+
+function initGame(){
     loadCards();
+    cleanSlate();
     }
 
-var loadCards = function loadingCards(){
+// function randomBgImage(){
+//     var randoImage = Math.floor(Math.random() * imageContainer.length);
+// }
+//
+//display stats from zero
+function cleanSlate(){
+    $('.games-played .value').text(gamesPlayed);
+    $('.attempts .value').text(attempts);
+    $('.accuracy .value').text(accuracy+ '%');
+}
+
+//load cards onto board
+function loadCards (){
     cardList = document.querySelectorAll('.card');
     cardList.forEach(iter => iter.addEventListener('click', flipCard));
     randomShuff();
     life = document.getElementById("life")
 }
 
-function flipCard(){
+//randomly display cards on board
+function randomShuff() {
+    cardList.forEach(card => {
+        var randomNum = Math.floor(Math.random() * cardList.length);
+        card.style.order = randomNum;
+    });
+}
 
+//flipping of cards
+function flipCard(){
     if(boardDisabled) return;
     this.classList.add('flip');
-
     if(!flippedCard){
         flippedCard = true;
         cardOne = this;
@@ -39,114 +59,111 @@ function flipCard(){
     cardTwo = this;
     flippedCard = false;
     cardOne.addEventListener('click', flipCard);
-    setTimeout(checkForMatch, 500);
+    setTimeout(checkForMatch, 500); //refactor order of functions rather than setTimeout
 }
 
+//confirming card match
 function checkForMatch(){
-
     if(cardOne.dataset.card===cardTwo.dataset.card){
         lifepoints += 5;
         life.value = lifepoints;
+        matchCount++;
         attempts++;
-        cardMatch++;
-        checkForEnd();
         disableCards();
+        checkForEnd();
         calculate();
-        display_stats();
+        attemptMatch();
         return;
-    } else
-        { lifepoints -= 10;
-            life.value = lifepoints;
-            attempts++;
-            checkForEnd();
-            calculate();
-            display_stats();
-        }
-    unflip();
+    }else{
+        lifepoints -= 10;
+        life.value = lifepoints;
+        attempts++;
+        checkForEnd();
+        calculate();
+        attemptMatch();
+    }
+    unFlip();
 }
 
-    function checkForEnd() {
-        if (lifepoints > 0 && cardMatch === 9) {
-            return victory();
-    }  else if (lifepoints === 0) {
-            return gameOver();
+//unflip cards if no confirmed match
+function unFlip() {
+    boardDisabled = true;
+        setTimeout(() => {
+            cardOne.classList.remove('flip');
+            cardTwo.classList.remove('flip');
+            boardDisabled = false;
+    }, 1000);
+}
+
+//disable card if match is confirmed
+function disableCards() {
+    cardOne.removeEventListener('click', flipCard);
+    cardTwo.removeEventListener('click', flipCard);
+}
+
+//check for game ending conditions
+function checkForEnd(){
+    if(lifepoints > 0 && matchCount === possibleMatches){
+        $('body').append('<div class=win>').click(resetGame);
+
+        // finishGame();
+
+    }else if(lifepoints === 0) {
+        $('body').append('<div class=gameover>');
+
+        // finishGame();
     }
 }
 
-    function unflip() {
-        boardDisabled = true;
-            setTimeout(() => {
-                cardOne.classList.remove('flip');
-                cardTwo.classList.remove('flip');
-                boardDisabled = false;
-        }, 1000);
-    }
-
-    function disableCards() {
-        cardOne.removeEventListener('click', flipCard);
-        cardTwo.removeEventListener('click', flipCard);
-    }
-
-    function randomShuff() {
-        cardList.forEach(card => {
-            var randomNum = Math.floor(Math.random() * cardList.length);
-            card.style.order = randomNum;
-        });
-    }
-
-    function victory() {
-    if (lifepoints > 0 && cardMatch === 9);
-        stopAudio();
-        gamesWon++;
-        gameTotal();
-        display_stats();
-        alert("Victory !");
-    }
-
-    function gameOver() {
-    if (lifepoints === 0);
-        gamesLost++;
-        gameTotal();
-        display_stats();
-        alert('K.O. !');
-    }
-
-    function clearBoard() {
-        $('.flip').removeClass('flip');
-    }
-
-    function resetGame() {
-        gamesPlayed++;
-        clearBoard();
-        setTimeout(loadCards, 300);
-        resetStats();
-        display_stats();
-        $("#life").val(100);
-
-}
-function resetStats() {
+//reset game board and stats while counting as a game played
+function resetGame() {
+    gamesPlayed ++;
     attempts = 0;
-    accuracy = 100;
     lifepoints = 100;
-    cardMatch = 0;
+    matchCount = 0;
+    $("#life").val(100);
+    $('.games-played .value').text(gamesPlayed);
+    $('.attempts .value').text(attempts);
+    $('.accuracy .value').text(accuracy+ '%');
+    nextGame();
 }
 
-    function display_stats() {
-        $('.games-played .value').text(gamesPlayed);
-        $('.attempts .value').text(attempts);
-        $('.accuracy .value').text(accuracy + '%');
-    }
+//unflip and shuffle of cards when resetting
+function nextGame(){
+    $('.flip').removeClass('flip');
+    setTimeout(() => {
+        randomShuff();
+    }, 500);
+}
 
-    function calculate() {
-        var possibleMatches = 9;
-        accuracy = Math.floor((possibleMatches / attempts) * 10);
-    }
+function finishGame(){
+    gamesPlayed ++;
+    matchCount = 0;
+    attempts = 0;
+    lifepoints = 100;
+    accuracy = 0;
+}
 
-    function gameTotal() {
-        gamesPlayed = gamesWon + gamesLost;
-        return gamesPlayed;
-    }
+//track games played
+function gameCount(){
+    $('.games-played .value').text(gamesPlayed);
+}
 
-function toggleMute(){
-    $("#audio_player").prop("muted",!$("#audio_player").prop("muted"));
+//track match attempts
+function attemptMatch(){
+    $('.attempts .value').text(attempts);
+}
+
+//calculate accuracy
+function calculate() {
+    var matchPercentage = (matchCount / attempts) * 100;
+    $('.accuracy .value').text(matchPercentage.toFixed(0) + '%');
+    if (isNaN(matchPercentage) === true) {
+        $('.accuracy .value').text(' ');
+    }
+}
+
+
+function toggleMute() {
+    $("#audio_player").prop("muted", !$("#audio_player").prop("muted"));
 }
