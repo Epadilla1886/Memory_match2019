@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Memory Match of the Millennium</title>
+    <link rel="shortcut icon" href="Image/punch-tab.png" />
+    <link rel="stylesheet" href="memory.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="new.js">
+    </script>
+</head>
+<body>
+<header>Match of the Millennium</header>
+
+<div class="stats-container">
+    <h1>Stats</h1>
+    <div class="games-played">
+        <div class="label">Games Played</div>
+        <div class="value"></div>
+    </div>
+    <div class="attempts">
+        <div class="label">Attempts</div>
+        <div class="value"></div>
+    </div>
+    <div class="accuracy">
+        <div class="label">Accuracy</div>
+        <div class="value"></div>
+    </div>
+    <button onclick="resetGame()" class="reset">Reset Game</button>
+</div>
+
+<div id="game-area">
+    <div class="card" data-card="9">
+        <img class="front" src="Image/9.jpg">
+        <img class="back" src="Image/MomLOGO.png">
+    </div>
+    <div class="card" data-card="9">
+        <img class="front" src="Image/9.jpg">
+        <img class="back" src="Image/MomLOGO.png">
+    </div>
+
+    <div class="card" data-card="2">
+        <img class="front" src="Image/2.jpg">
+        <img class="back" src="Image/MomLOGO.png">
+    </div>
+    <div class="card" data-card="2">
+        <img class="front" src="Image/2.jpg">
+        <img class="back" src="Image/MomLOGO.png">
+    </div>
+
+    <div class="card" data-card="1">
+        <img class="front" src="Image/1.jpg">
+        <img class="back" src="Image/MomLOGO.png">
+    </div>
+
+    <div class="card" data-card="1">
+        <img class="front" src="Image/1.jpg">
+        <img class="back" src="Image/MomLOGO.png">
+    </div>
+
+    <div class="card" data-card="5">
+        <img class="front" src="Image/5.jpg">
+        <img class="back" src="Image/MomLOGO.png">
+    </div>
+
+    <div class="card" data-card="5">
+        <img class="front" src="Image/5.jpg">
+        <img class="back" src="Image/MomLOGO.png">
+    </div>
+
+    <div class="card" data-card="8">
+        <img class="front" src="Image/8.jpg">
+        <img class="back" src="Image/MomLOGO.png">
+    </div>
+
+    <div class="card" data-card="8">
+        <img class="front" src="Image/8.jpg">
+        <img class="back" src="Image/MomLOGO.png">
+    </div>
+
+    <div class="card" data-card="6">
+        <img class="front" src="Image/6.jpg">
+        <img class="back" src="Image/MomLOGO.png">
+    </div>
+
+    <div class="card" data-card="6">
+        <img class="front" src="Image/6.jpg">
+        <img class="back" src="Image/MomLOGO.png">
+    </div>
+
+    <div class="card" data-card="7">
+        <img class="front" src="Image/7.jpg">
+        <img class="back" src="Image/MomLOGO.png">
+    </div>
+
+    <div class="card" data-card="7">
+        <img class="front" src="Image/7.jpg">
+        <img class="back" src="Image/MomLOGO.png">
+    </div>
+
+    <div class="card" data-card="3">
+        <img class="front" src="Image/3.jpg">
+        <img class="back" src="Image/MomLOGO.png">
+    </div>
+
+    <div class="card" data-card="3">
+        <img class="front" src="Image/3.jpg">
+        <img class="back" src="Image/MomLOGO.png">
+    </div>
+
+    <div class="card" data-card="4">
+        <img class="front" src="Image/4.jpg">
+        <img class="back" src="Image/MomLOGO.png">
+    </div>
+
+    <div class="card" data-card="4">
+        <img class="front" src="Image/4.jpg">
+        <img class="back" src="Image/MomLOGO.png">
+    </div>
+</div>
+
+<div class="life-bar"><h1>Life Bar</h1>
+    <div class="value">
+    <progress id="life" value="100" max="100" min="0"></progress>
+    </div>
+    <!--<audio id="audio_player" controls autoplay="true">-->
+        <!--<source src="https://vgmrips.net/packs/vgm/SvC_MoTM/17%20-%2018%20Guile%27s%20Theme.mp3" type="audio/mpeg">-->
+    <!--</audio>-->
+</div>
+
+
+
+<footer>
+    <a>Settings</a>
+    <a href="about.html" target="_blank">About</a>
+</footer>
+</body>
+</html>

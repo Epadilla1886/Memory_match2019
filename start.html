@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Start Page</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+
+        function openGame()
+        {
+            theWindow = window.open("memory.html", "_self");
+        }
+
+    </script>
+    <style>
+        body {
+            height: 90vh;
+            background-image: url('Image/wallpaper_snk_vs_capcom_svc_chaos_01_1680x1050.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        #startScreen {
+            margin: auto;
+            margin-top: 50px;
+            position: absolute;
+            top: 300px;
+            left: 600px;
+            width: 750px;
+            height: 250px;
+            background-color: rgba(0, 0, 130, .5);
+            color: rgba(0, 0, 130, 0);
+            text-align: center;
+            border: 8px solid;
+            border-radius: 10px;
+            box-shadow: 0 1px 32px darkblue;
+        }
+        #startScreen div {
+            height:60%;
+        }
+
+        #startScreen h1 {
+            position:absolute;
+            width: 100%;
+            color: red;
+            font-style: inherit;
+            font-weight: bold;
+            font-size: 50px;
+            text-shadow: 0 1px 32px yellow;
+        }
+
+        #startScreen a {
+            font-weight: bold;
+        }
+
+        #startScreen span {
+            position: relative;
+            font-size: 18px;
+        }
+        button{
+        cursor: pointer;
+        background-color: rgba(0, 0, 130, 0);
+        }
+    </style>
+</head>
+<body>
+<div id="startScreen">
+    <embed  src="https://vgmrips.net/packs/vgm/SvC_MoTM/02%20-%2033%20Choujou%20Kessen.mp3" loop="true" hidden="true" autostart="true">
+    <div>
+        <h1>MATCH OF THE MILLENNIUM</h1>
+    </div>
+    <div id="button">
+        <button onclick="openGame()"><img src="Image/start.png" height="75" width="250"/></button>
+    </div>
+</div>
+</body>
+</html>
