@@ -5,134 +5,116 @@
     <title>Memory Match of the Millennium</title>
     <link rel="shortcut icon" href="Image/punch-tab.png" />
     <link rel="stylesheet" href="memory.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="new.js">
+    <script src="index.js">
     </script>
 </head>
 <body>
-<header>Match of the Millennium</header>
+    <div id="header" class="header">
+        <div class="titleContainer">
+            <div class="title">Memory Match of the Millennium</div>
+        </div>
+        <div class="life">
+            Health <progress id="life" value="100" max="100" min="0" >Health</progress>
+        </div>
+        <div id="about">
+            <i class="fas fa-info-circle"></i>
+        </div>
+        <div class="settings" onclick="pickBG()">
+            <i class="fas fa-cog"></i>
+        </div>
+    </div>
+    <div id="gameArea">
+        <div class="cardSpace"></div>
+    </div>
+    <div id="settings">
+        <h3>Background Select</h3>
+         <div class="bg-container">
+            <img class="bg" src="Image/bg.gif">
+            <img class="bg2" src="Image/bg2.gif">
+            <img class="bg10" src="Image/bg10.gif">
+            <img class="bg11" src="Image/bg11.gif">
+            <img class="bg14" src="Image/bg14.gif">
+            <img class="bg15" src="Image/bg15.gif"> 
+        </div>
+    </div>
+    <div id="footer" class="footer">
+        <div class="stats-container">
+            <div class="game-stats">
+                <div class="games-played">
+                    <div class="label">Games Played:</div>
+                    <div class="value"></div>
+                </div>
+                <div class="attempts">
+                    <div class="label">Attempts:</div>
+                    <div class="value"></div>
+                </div >
+                <div class="accuracy">
+                    <div class="label">Accuracy:</div>
+                    <div class="value"></div>
+                </div>
+                <div class="reset">
+                    <button onclick="resetGame()" class="resetBtn">Reset Game</button>
+                </div>
+            </div>
+            <div id="aboutModal" class="modal">
+                <div class="modal-content">
+                    <img class="profile" src="Image/profile.jpg" height="350" width="250"/>
+                        <div class="right">
+                            <h3>About the Author</h3>
+                            <p>Hello!</p>
+                            <p>My name is EJ Padilla and this is my first project created as a web developer.                    This memory game was created using HTML5, JavaScript, jQuery, and CSS3. As my skills increase, I will continue to update this game with more features. Thank you for playing!</p>
 
-<div class="stats-container">
-    <h1>Stats</h1>
-    <div class="games-played">
-        <div class="label">Games Played</div>
-        <div class="value"></div>
+                            <p>Please feel free to check out my <a href="https://savewhatremains.com" target="_blank">Portfolio!</a></p>
+                    
+                        </div>
+                    <span class="close">&times;</span>
+                </div>
+            </div>
+            <!--<div id="settingsModal" class="modal">-->
+                <!--<div class="modal-content">-->
+                    <!--<img class="profile" src="Image/profile.jpg" height="350" width="250"/>-->
+                    <!--<div class="right">-->
+                        <!--<h3>Pick a Background</h3>-->
+                    <!--</div>-->
+                    <!--<span class="close">&times;</span>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
     </div>
-    <div class="attempts">
-        <div class="label">Attempts</div>
-        <div class="value"></div>
+    <div id="start">
+        <!--<audio autoplay>-->
+            <!--<source src="Image/Capcom%20vs.%20SNK%202%20OST%20-%20Mode%20Select.mp3" type="audio/mpeg">-->
+        <!--</audio>-->
     </div>
-    <div class="accuracy">
-        <div class="label">Accuracy</div>
-        <div class="value"></div>
-    </div>
-    <button onclick="resetGame()" class="reset">Reset Game</button>
-</div>
-
-<div id="game-area">
-    <div class="card" data-card="9">
-        <img class="front" src="Image/9.jpg">
-        <img class="back" src="Image/MomLOGO.png">
-    </div>
-    <div class="card" data-card="9">
-        <img class="front" src="Image/9.jpg">
-        <img class="back" src="Image/MomLOGO.png">
-    </div>
-
-    <div class="card" data-card="2">
-        <img class="front" src="Image/2.jpg">
-        <img class="back" src="Image/MomLOGO.png">
-    </div>
-    <div class="card" data-card="2">
-        <img class="front" src="Image/2.jpg">
-        <img class="back" src="Image/MomLOGO.png">
-    </div>
-
-    <div class="card" data-card="1">
-        <img class="front" src="Image/1.jpg">
-        <img class="back" src="Image/MomLOGO.png">
-    </div>
-
-    <div class="card" data-card="1">
-        <img class="front" src="Image/1.jpg">
-        <img class="back" src="Image/MomLOGO.png">
-    </div>
-
-    <div class="card" data-card="5">
-        <img class="front" src="Image/5.jpg">
-        <img class="back" src="Image/MomLOGO.png">
-    </div>
-
-    <div class="card" data-card="5">
-        <img class="front" src="Image/5.jpg">
-        <img class="back" src="Image/MomLOGO.png">
-    </div>
-
-    <div class="card" data-card="8">
-        <img class="front" src="Image/8.jpg">
-        <img class="back" src="Image/MomLOGO.png">
-    </div>
-
-    <div class="card" data-card="8">
-        <img class="front" src="Image/8.jpg">
-        <img class="back" src="Image/MomLOGO.png">
-    </div>
-
-    <div class="card" data-card="6">
-        <img class="front" src="Image/6.jpg">
-        <img class="back" src="Image/MomLOGO.png">
-    </div>
-
-    <div class="card" data-card="6">
-        <img class="front" src="Image/6.jpg">
-        <img class="back" src="Image/MomLOGO.png">
-    </div>
-
-    <div class="card" data-card="7">
-        <img class="front" src="Image/7.jpg">
-        <img class="back" src="Image/MomLOGO.png">
-    </div>
-
-    <div class="card" data-card="7">
-        <img class="front" src="Image/7.jpg">
-        <img class="back" src="Image/MomLOGO.png">
-    </div>
-
-    <div class="card" data-card="3">
-        <img class="front" src="Image/3.jpg">
-        <img class="back" src="Image/MomLOGO.png">
-    </div>
-
-    <div class="card" data-card="3">
-        <img class="front" src="Image/3.jpg">
-        <img class="back" src="Image/MomLOGO.png">
-    </div>
-
-    <div class="card" data-card="4">
-        <img class="front" src="Image/4.jpg">
-        <img class="back" src="Image/MomLOGO.png">
-    </div>
-
-    <div class="card" data-card="4">
-        <img class="front" src="Image/4.jpg">
-        <img class="back" src="Image/MomLOGO.png">
-    </div>
-</div>
-
-<div class="life-bar"><h1>Life Bar</h1>
-    <div class="value">
-    <progress id="life" value="100" max="100" min="0"></progress>
-    </div>
-    <!--<audio id="audio_player" controls autoplay="true">-->
-        <!--<source src="https://vgmrips.net/packs/vgm/SvC_MoTM/17%20-%2018%20Guile%27s%20Theme.mp3" type="audio/mpeg">-->
-    <!--</audio>-->
-</div>
-
-
-
-<footer>
-    <a>Settings</a>
-    <a href="about.html" target="_blank">About</a>
-</footer>
 </body>
 </html>
+
+
+<script>
+    var modal = document.getElementById('aboutModal');
+    var about = document.getElementById("about");
+    var span = document.getElementsByClassName("close")[0];
+    var start = document.getElementById('start');
+
+
+    about.onclick = function() {
+        modal.style.display = "block";
+    };
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+
+    start.onclick = function() {
+        start.style.display = "none";
+        startGame();
+    };
+</script>
