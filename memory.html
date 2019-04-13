@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="memory.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="index.js">
-    </script>
+    <script src="index.js"></script>
 </head>
 <body>
     <div id="header" class="header">
@@ -29,7 +28,7 @@
         <div class="cardSpace"></div>
     </div>
     <div id="settings">
-        <h3>Background Select</h3>
+        <h3>Stage Select</h3>
          <div class="bg-container">
             <img class="bg" src="Image/bg.gif">
             <img class="bg2" src="Image/bg2.gif">
@@ -72,49 +71,8 @@
                     <span class="close">&times;</span>
                 </div>
             </div>
-            <!--<div id="settingsModal" class="modal">-->
-                <!--<div class="modal-content">-->
-                    <!--<img class="profile" src="Image/profile.jpg" height="350" width="250"/>-->
-                    <!--<div class="right">-->
-                        <!--<h3>Pick a Background</h3>-->
-                    <!--</div>-->
-                    <!--<span class="close">&times;</span>-->
-                <!--</div>-->
-            <!--</div>-->
         </div>
     </div>
-    <div id="start">
-        <!--<audio autoplay>-->
-            <!--<source src="Image/Capcom%20vs.%20SNK%202%20OST%20-%20Mode%20Select.mp3" type="audio/mpeg">-->
-        <!--</audio>-->
-    </div>
+    <div id="start"></div>
 </body>
 </html>
-
-
-<script>
-    var modal = document.getElementById('aboutModal');
-    var about = document.getElementById("about");
-    var span = document.getElementsByClassName("close")[0];
-    var start = document.getElementById('start');
-
-
-    about.onclick = function() {
-        modal.style.display = "block";
-    };
-
-    span.onclick = function() {
-        modal.style.display = "none";
-    };
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    };
-
-    start.onclick = function() {
-        start.style.display = "none";
-        startGame();
-    };
-</script>

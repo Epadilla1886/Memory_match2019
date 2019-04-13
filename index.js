@@ -45,8 +45,31 @@ $(document).ready(function () {
     randomBG();
     var header = document.getElementById('header');
     var footer = document.getElementById('footer');
+    var modal = document.getElementById('aboutModal');
+    var about = document.getElementById("about");
+    var span = document.getElementsByClassName("close")[0];
+    var start = document.getElementById('start');
     header.style.display = "none";
     footer.style.display = "none";
+    
+    about.onclick = function() {
+        modal.style.display = "block";
+    };
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+
+    start.onclick = function() {
+        start.style.display = "none";
+        startGame();
+    };
 });
 
 function randomBG(){
@@ -74,6 +97,7 @@ function startGame(){
 function clickHandlers(){
     $('.card').click(clickCard);
     $('.reset').click(resetGame);
+    $('.bg-container > img').click(backGround);
 }
 
 function cleanSlate(){
@@ -159,18 +183,18 @@ function matchedCard(){
 }
 
 function checkForWin(){
-    if(matchCounter === totalPossibleMatches){
-        $('body').append('<div class=win>');
-        setTimeout(function(){
-            $('.win').remove();
-        }, 3000);
-        nextGame();
-    }else if(lifepoints === 0){
-        $('body').append('<div class=game-over>');
-        setTimeout(function(){
-            $('.game-over').remove();
-        }, 3000);
-        nextGame();
+if(matchCounter === totalPossibleMatches){
+    $('body').append('<div class=win>');
+    setTimeout(function(){
+        $('.win').remove();
+    }, 3000);
+    nextGame();
+}else if(lifepoints === 0){
+    $('body').append('<div class=game-over>');
+    setTimeout(function(){
+        $('.game-over').remove();
+    }, 3000);
+    nextGame();
     }
 }
 
@@ -216,7 +240,14 @@ function reportAccuracy(){
     $("#settings").show();
 };
 
-function backGround (){
+function backGround (image){
+   
+    var bgImage = image.currentTarget.attributes[1].value;
+    console.log(bgImage);
     
+    $('body').css('background-image', 'url('+bgImage+')') 
+    $("#gameArea").show();
+    $("#settings").hide();
 }
+
 
