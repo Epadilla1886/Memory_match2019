@@ -241,10 +241,7 @@ function reportAccuracy(){
 };
 
 function backGround (image){
-   
     var bgImage = image.currentTarget.attributes[1].value;
-    console.log(bgImage);
-    
     $('body').css('background-image', 'url('+bgImage+')') 
     $("#gameArea").show();
     $("#settings").hide();
