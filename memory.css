@@ -2,9 +2,48 @@ body {
     margin: 0;
     background-image: url(Image/bg.gif);
     background-attachment: fixed;
+    background-repeat: no-repeat;
     background-size: auto 100%;
     background-position: center;
     overflow: hidden;
+}
+
+.disclaimer {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
+}
+
+.disclaimer-content {
+    background-color: rgba(0,0,0, 0.8);
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    width: 85%;
+    display: block;
+    text-align: center;
+    position: fixed;
+    top: 25%;
+    left: 5%;
+}
+
+.dc-image {
+    height: 60%;
+    margin-top: 15px;
+    width: 60%;
+}
+
+.disc{
+    color: darkgrey;
+    font-size: 2em;
+    font-family: Trebuchet MS;
 }
 
 .header {
@@ -353,7 +392,8 @@ h3{
 
 .win{
     background-image: url(Image/win.gif);
-    position: absolute;
+    z-index: 1;
+    position: fixed;
     height:100%;
     width: 100%;
     background-size: 70% 70%;
@@ -364,7 +404,8 @@ h3{
 
 .game-over{
     background-image: url(Image/ko.gif);
-    position: absolute;
+    z-index: 1;
+    position: fixed;
     height:100%;
     width: 100%;
     background-size: 70% 70%;
@@ -432,8 +473,8 @@ h3{
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
@@ -509,8 +550,8 @@ and (orientation: landscape) {
         width: 100%;
         height: 100%;
         overflow: auto;
-        background-color: rgb(0,0,0); /* Fallback color */
-        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        background-color: rgb(0,0,0); 
+        background-color: rgba(0,0,0,0.4);
     }
 
  .modal-content {
@@ -614,5 +655,49 @@ and (orientation: landscape) {
         margin: auto;
         margin-bottom: 1%;
         width: 100%;
+    }
+}
+
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 812px) 
+and (-webkit-device-pixel-ratio : 3)
+and (orientation : portrait) { 
+    .disclaimer {
+        display: block;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0); 
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .disclaimer-content {
+        background-color: rgba(0,0,0, 0.8);
+        padding: 20px;
+        border: 1px solid #888;
+        border-radius: 5px;
+        width: 85%;
+        display: block;
+        text-align: center;
+        position: fixed;
+        top: 25%;
+        left: 5%;
+    }
+
+    .dc-image {
+        height: 60%;
+        margin-top: 15px;
+        width: 60%;
+    }
+
+    .disc{
+        color: darkgrey;
+        font-size: 2em;
+        font-family: Trebuchet MS;
     }
 }

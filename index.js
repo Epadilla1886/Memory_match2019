@@ -189,7 +189,7 @@ if(matchCounter === totalPossibleMatches){
         $('.win').remove();
     }, 3000);
     nextGame();
-}else if(lifepoints === 0){
+}else if(lifepoints <= 0){
     $('body').append('<div class=game-over>');
     setTimeout(function(){
         $('.game-over').remove();
