@@ -188,13 +188,13 @@ if(matchCounter === totalPossibleMatches){
     setTimeout(function(){
         $('.win').remove();
     }, 3000);
-    nextGame();
+    setTimeout(nextGame, 3000);
 }else if(lifepoints <= 0){
     $('body').append('<div class=game-over>');
     setTimeout(function(){
         $('.game-over').remove();
     }, 3000);
-    nextGame();
+    setTimeout(nextGame, 3000);
     }
 }
 
@@ -234,10 +234,8 @@ function reportAccuracy(){
     }
 }
 
-
  function pickBG(){
-    $("#gameArea").hide();
-    $("#settings").show();
+    $("#gameArea, #settings").toggle();
 };
 
 function backGround (image){

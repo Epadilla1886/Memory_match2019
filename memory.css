@@ -124,7 +124,7 @@ progress[value]::-webkit-progress-value {
     font-weight: bold;
     color: darkred;
     font-family: Trebuchet MS;
-    text-shadow: 0 0 2px gold;
+    text-shadow: 0 0 15px darkgoldenrod;
     justify-content: center;
     text-align: center;
 }
@@ -277,6 +277,7 @@ h3{
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     border-radius: 5px;
+    cursor: pointer;
 }
 @keyframes pulse {
     25% {
@@ -513,6 +514,150 @@ img.profile{
     cursor: pointer;
 }
 
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : landscape) { 
+    
+    .title{
+        display: none;
+    }
+    
+    .life {
+    width: 75%;
+    margin: 0 auto;
+    position: fixed;
+    top: 6%;
+    left: 13%;
+    font-size: 20px;
+    font-weight: bold;
+    color: darkred;
+    font-family: Trebuchet MS;
+    text-shadow: 0 0 2px gold;
+    }
+
+    .settings{
+        position: fixed;
+        top: 3%;
+        right: 5%;
+    }
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0); 
+        background-color: rgba(0,0,0,0.4);
+    }
+
+ .modal-content {
+    /* background-color: rgba(0,0,0, 0.8); */
+    margin: 3% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 5px;
+    /* width: 80%; */
+    /* display: flex; */
+    font-size: .75em;
+    }
+
+    img.profile{
+        margin-right: 40px;
+    }
+
+    .right{
+        margin: auto;
+        display: grid;
+        justify-items: center;
+        color: darkgray;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        text-shadow: 0 0;
+    }
+    .kyo, .iori, .terry, .geese, .ryo, .leona, .hao, .yuri, .mai, .ryu, .ken, .akuma, .bison, .guile, .sakura, .dan, .morrigan, .chunli{
+        background-size: contain;
+    }
+
+        .footer{
+        height:11vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        position: relative;
+        font-size: 20px;
+        font-weight: bold;
+        color: darkred;
+        font-family: Trebuchet MS;
+        text-shadow: 0 0 2px gold;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .stats-container{
+        width: 95%;
+        display: block;
+    }
+
+    .game-stats{
+        display: flex;
+    }
+
+    .games-played, .attempts, .accuracy {
+        width: 25%;
+    }
+
+    .label,{
+        display: contents;
+        width: 25%;
+        font-size: 24px;
+        font-family: 'scFont';
+    }
+
+    .value{
+        width:100%;
+    }   
+    
+    .reset{
+        width: 21%;
+    }
+
+    .resetBtn{
+        padding: 0.2em 6em;
+        overflow: hidden;
+        text-decoration: none;
+        text-transform: uppercase;
+        border-radius: 3px;
+        -webkit-transition: 0.3s;
+        -moz-transition: 0.3s;
+        -ms-transition: 0.3s;
+        -o-transition: 0.3s;
+        transition: 0.3s;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        border: none;
+        background-color: #F44336;
+        color: white;
+        cursor: pointer;
+    }
+    h3{
+/*        background-color: rgba(0, 0, 0, 0.7);*/
+        font-size: 1.50em;
+        font-weight: bold;
+        color: darkred;
+        font-family: Trebuchet MS;
+        text-shadow: 0 0 3px gold;
+        margin: auto;
+        margin-bottom: 1%;
+        width: 100%;
+    }
+}
+
 
 @media only screen
 and (min-device-width: 375px)
@@ -655,6 +800,49 @@ and (orientation: landscape) {
         margin: auto;
         margin-bottom: 1%;
         width: 100%;
+    }
+}
+
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) 
+and (orientation : portrait) { 
+ .disclaimer {
+        display: block;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0,0,0); 
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .disclaimer-content {
+        background-color: rgba(0,0,0, 0.8);
+        padding: 20px;
+        border: 1px solid #888;
+        border-radius: 5px;
+        width: 85%;
+        display: block;
+        text-align: center;
+        position: fixed;
+        top: 25%;
+        left: 5%;
+    }
+
+    .dc-image {
+        height: 60%;
+        margin-top: 15px;
+        width: 60%;
+    }
+
+    .disc{
+        color: darkgrey;
+        font-size: 2em;
+        font-family: Trebuchet MS;
     }
 }
 
