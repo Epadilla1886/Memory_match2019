@@ -99,9 +99,7 @@ function startGame(){
 
 function clickHandlers(){
     $('.card').click(clickCard);
-    $('.resetBtn').click(resetGame);
     $('.bg-container > img').click(backGround);
-    // $('.resetBtn').click();
 }
 
 function cleanSlate(){
@@ -202,14 +200,7 @@ if(matchCounter === totalPossibleMatches){
     }
 }
 
-function resetGame(){
-   
-    randomBG();
-    nextGame();
-}
-
-function nextGame(){
-    debugger;
+function nextGame(){ 
     gamesPlayed ++;
     attempts = 0;
     accuracy = 0;
@@ -225,6 +216,7 @@ function nextGame(){
     $('.accuracy .value').text(accuracy+ '%');
     $('#minutes #seconds').val("0");
     randomShuffle(fighterArray);
+    randomBG();
     assignRandomClass();
 }
 
@@ -275,12 +267,3 @@ function timer(){
         }
     }
 }
-
-// function timerReset() {
-//     $('#seconds').text('');
-//     $('#minutes').text('');
-//     clearInterval(timer, 1000);
-// }
-
-
-  
