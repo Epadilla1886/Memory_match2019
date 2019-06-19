@@ -201,6 +201,7 @@ if(matchCounter === totalPossibleMatches){
 }
 
 function nextGame(){ 
+   
     gamesPlayed ++;
     attempts = 0;
     accuracy = 0;
@@ -214,7 +215,7 @@ function nextGame(){
     $('.games-played .value').text(gamesPlayed);
     $('.attempts .value').text(attempts);
     $('.accuracy .value').text(accuracy+ '%');
-    $('#minutes #seconds').val("0");
+    
     randomShuffle(fighterArray);
     randomBG();
     assignRandomClass();
@@ -250,6 +251,8 @@ function timer(){
 
     $('.resetBtn').click(function(){
         totalSeconds = 0;
+        $('#minutes').text("00");
+        $('#seconds').text("00");
     });
 
     function setTime() {
