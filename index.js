@@ -85,6 +85,7 @@ function randomBG(){
 }
 
 function startGame(){
+    
     cleanSlate();
     createCards();
     clickHandlers();
@@ -92,12 +93,15 @@ function startGame(){
     var footer = document.getElementById('footer');
     header.style.display = "flex";
     footer.style.display = "flex";
+    timer();
+
 }
 
 function clickHandlers(){
     $('.card').click(clickCard);
-    $('.reset').click(resetGame);
+    $('.resetBtn').click(resetGame);
     $('.bg-container > img').click(backGround);
+    // $('.resetBtn').click();
 }
 
 function cleanSlate(){
@@ -199,11 +203,13 @@ if(matchCounter === totalPossibleMatches){
 }
 
 function resetGame(){
+   
     randomBG();
     nextGame();
 }
 
 function nextGame(){
+    debugger;
     gamesPlayed ++;
     attempts = 0;
     accuracy = 0;
@@ -217,6 +223,7 @@ function nextGame(){
     $('.games-played .value').text(gamesPlayed);
     $('.attempts .value').text(attempts);
     $('.accuracy .value').text(accuracy+ '%');
+    $('#minutes #seconds').val("0");
     randomShuffle(fighterArray);
     assignRandomClass();
 }
@@ -245,4 +252,35 @@ function backGround (image){
     $("#settings").hide();
 }
 
+function timer(){
+    var totalSeconds = 0;
+    setInterval(setTime, 1000);
 
+    $('.resetBtn').click(function(){
+        totalSeconds = 0;
+    });
+
+    function setTime() {
+        ++totalSeconds;
+        $('#seconds').text(pad(totalSeconds % 60));
+        $('#minutes').text(pad(parseInt(totalSeconds / 60)));
+    }
+
+    function pad(val) {
+        var timeString = val + "";
+        if (timeString.length < 2) {
+            return "0" + timeString;
+        } else {
+            return timeString;
+        }
+    }
+}
+
+// function timerReset() {
+//     $('#seconds').text('');
+//     $('#minutes').text('');
+//     clearInterval(timer, 1000);
+// }
+
+
+  
